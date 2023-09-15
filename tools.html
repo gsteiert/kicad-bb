@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>KiCad BB Tools</title>
+    <script>
+        function calculateR() {
+            let resistance = document.getElementById("vin").value;
+            resistance -= document.getElementById("vled").value;
+            resistance /= document.getElementById("current").value;
+            resistance *= 1000;
+            document.getElementById("resistance").innerHTML = Math.round(resistance);
+        }
+    </script>
+    <style>
+        .inputs {
+            float: left;
+        }
+        .stacked {
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+        .circuit {
+            float: left;
+        }
+        .result {
+            float: left;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>KiCad BB Tools</h1>
+        <p><form>
+            <h2>LED Resistor Calculator</h2>
+            <div class="inputs">
+                <div class="stacked">
+                    <input type="number" value="3.3" class="ledr" id="vin" onchange="calculateR()"/> Vin (V)
+                </div>
+                <div class="stacked">
+                    <input type="number" value="0.5" class="ledr" id="current" onchange="calculateR()"/> I (mA)
+                </div>
+                <div class="stacked">
+                    <input type="number" value="2.1" class="ledr" id="vled" onchange="calculateR()"/> Vf (V)
+                </div>
+            </div>
+            <div class="circuit">
+                <img src="./img/kicad-bb-led-calc.drawio.png">
+            </div>
+            <div class="result">
+                R = <span id="resistance">?</span>
+            </div>
+            <script>
+                calculateR();
+            </script>
+        </form></p>
+    </body>
+</html>        
