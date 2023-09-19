@@ -35,15 +35,17 @@
         <h1>KiCad BB Tools</h1>
         <p><form>
             <h2>LED Resistor Calculator</h2>
+            <img src="./img/led-i-v.png">
+            <p>Look in the LED datasheet for the current vs voltage curve and find the forward voltage at the desired current.  There is a limitted amount of current available from the NFC harvesting, but LEDs tend to be very bright at their rated current.  For a simple indicator about 1mA should be sufficient.  Enter the current and voltage in the form below</p>
             <div class="inputs">
                 <div class="stacked">
-                    <input type="number" value="3.3" class="ledr" id="vin" onchange="calculateR()"/> Vin (V)
+                    <input type="number" value="3.3" class="ledr" id="vin" onchange="calculateR()" size="5"/> Vin (V)
                 </div>
                 <div class="stacked">
-                    <input type="number" value="0.5" class="ledr" id="current" onchange="calculateR()"/> I (mA)
+                    <input type="number" value="0.5" class="ledr" id="current" onchange="calculateR()" size="5"/> I (mA)
                 </div>
                 <div class="stacked">
-                    <input type="number" value="2.1" class="ledr" id="vled" onchange="calculateR()"/> Vf (V)
+                    <input type="number" value="2.5" class="ledr" id="vled" onchange="calculateR()" size="5"/> Vf (V)
                 </div>
             </div>
             <div class="circuit">
